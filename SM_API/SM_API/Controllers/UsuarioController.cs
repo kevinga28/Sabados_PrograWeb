@@ -16,7 +16,7 @@ namespace SM_API.Controllers
         {
             Respuesta resp = new Respuesta();
 
-            using (var context = new SqlConnection("Server=EDUARDO; Database=SABADO_BD; Trusted_Connection=True; TrustServerCertificate=True;"))
+            using (var context = new SqlConnection("Server=DESKTOP-M4O5NUM; Database=SABADO_BD; Trusted_Connection=True; TrustServerCertificate=True;"))
             {
                 var result = await context.ExecuteAsync("RegistrarUsuario", 
                     new { ent.Identificacion, ent.Correo, ent.Contrasenna, ent.Nombre }, 

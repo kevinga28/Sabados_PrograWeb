@@ -10,12 +10,13 @@ namespace SM_WEB.Models
             JsonContent body = JsonContent.Create(ent);
             var result = http.PostAsync(url, body);
         }
-
+//void no retorna nada
         public void IniciarSesion(Usuario ent)
         {
             string url = "https://localhost:7208/api/Usuario/IniciarSesion";
             JsonContent body = JsonContent.Create(ent);
             var result = http.PostAsync(url, body);
+
         }
 
     }
