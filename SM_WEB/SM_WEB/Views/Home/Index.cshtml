@@ -1,22 +1,27 @@
 ﻿@model SM_WEB.Entities.Usuario
+
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LayoutExterno.cshtml";
 }
 
 <div class="login-box">
-    <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
-    </div>
+    
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Iniciar Sesión</p>
 
-                @using (Html.BeginForm("Index", "Home")){
+            @using (Html.BeginForm("Index", "Home"))
+            {
+                @if (ViewBag.msj != null)
+                { 
+                  <div class="alert alert-info" style="text-align:center" role="alert">
+                      @ViewBag.msj
+                  </div>
+                }
 
                 <div class="input-group mb-3">
-                    @Html.TextBoxFor(m => m.Correo, new { @type = "email", @class = "form-control", @placeholder = "Correo Electronico" })
-
+                    @Html.TextBoxFor(m => m.Correo, new { @type = "email", @class="form-control", @placeholder="Correo Electrónico" })
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -24,7 +29,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-              @Html.TextBoxFor(m=>m.Contrasenna, new {@type = "password", @class= "form-control", @placeholder="Contraseña"})
+                    @Html.TextBoxFor(m => m.Contrasenna, new { @type = "password", @class = "form-control", @placeholder = "Contraseña" })
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -33,13 +38,13 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
- 
+                        
                     </div>
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block">Procesar</button>
                     </div>
                 </div>
-         }
+            }
 
             <p class="mb-1">
                 <a href="forgot-password.html">I forgot my password</a>
